@@ -5,9 +5,9 @@ $blue: $primary !default;
 $m-blue-d1: mix(white, $primary, 5%) !default;
 $m-blue-d2: mix(white, $primary, 15%) !default;
 $m-blue-d3: $primary !default;
-$m-blue-d4: mix(rgb(74, 137, 245), $primary, 20%) !default;
-$m-blue-d5: mix(rgb(56, 148, 252), $primary, 30%) !default;
-$m-blue-d6: mix(rgb(42, 134, 226), $primary, 40%) !default;
+$m-blue-d4: mix(#4a89f5, $primary, 20%) !default;
+$m-blue-d5: mix(#3894fc, $primary, 30%) !default;
+$m-blue-d6: mix(#2a86e2, $primary, 40%) !default;
 
 $uxpl-blue-hover-active: lighten($primary, 7%) !default;
 

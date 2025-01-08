@@ -7,6 +7,7 @@ from django.urls import reverse
 from lms.djangoapps.courseware.courses import get_course_about_section
 from django.conf import settings
 from common.djangoapps.edxmako.shortcuts import marketing_link
+from common.djangoapps.student.models import CourseEnrollment
 from openedx.core.djangolib.js_utils import js_escaped_string
 from openedx.core.djangolib.markup import clean_dangerous_html, HTML, Text
 from openedx.core.lib.courses import course_image_url
@@ -81,6 +82,13 @@ from openedx.core.lib.courses import course_image_url
             ${course.display_name_with_default}
           </h1>
           <span class="org">${course.display_org_with_default}</span>
+          <%
+          enrollment_count = CourseEnrollment.objects.num_enrolled_in_exclude_admins(course.id)
+          if course.max_student_enrollments_allowed and enrollment_count is not None:
+            seats_left = course.max_student_enrollments_allowed - enrollment_count
+          else:
+            seats_left = None
+          %>
           <div class="seats-left">
             Seats left: ${seats_left}
           </div>
